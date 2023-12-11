@@ -1,0 +1,33 @@
+<div class="container">
+    <div>
+        <h2>Ajouter un Acteur :</h2>
+    </div>
+    <form>
+        <div class="col-sm-4 col-md-4 col-lg-4"> <label>Nom Acteur</label> <input type="text"
+                [(ngModel)]="newActeur.nomActeur" name="nomActeur" class="form-control"> </div>
+        <div class="col-sm-2 col-md-2 col-lg-2"> <label>Rate acteur</label> <input type="number"
+                [(ngModel)]="newActeur.rateActeur" name="rateActeur" class="form-control"> </div>
+        <div class="col-sm-4 col-md-4 col-lg-4"> <label>Tel Acteur</label> <input type="text"
+                [(ngModel)]="newActeur.telActeur" name="telActeur" class="form-control"> </div>
+        <div class="col-sm-4 col-md-4 col-lg-4"> <label>Salaire Acteur</label> <input type="number"
+                [(ngModel)]="newActeur.salaireActeur" name="salaireActeur" class="form-control"> </div>
+        <div class="col-sm-2 col-md-2 col-lg-2"> <label>Film</label> 
+            <select class="form-control form-control-lg" id="idFilm" name="idFilm" [(ngModel)]="newIdFilm">
+                <option *ngFor="let film of films" [value]="film.idFilm">
+                    {{film.nomFilm}}
+                </option>
+            </select>
+        </div>
+        <div class="col-sm-16 col-md-16 col-lg-16">
+            <label class="mb-2">Image :</label>
+            <input type="file" (change)="onImageUpload($event)"
+            name="logo" class="form-control">
+        </div>
+
+        <div class="col-sm-16 col-md-16 col-lg-16">
+            <img [src]="imagePath" class="card-img-top img-fluid rounded-start"
+            style="width: 500px; height: 300px" />
+        </div>
+        <div class="mt-2"> <button type="submit" (click)="addActeur()" class="btn btn-success">Ajouter</button> </div>
+    </form>
+</div>

@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="card shadow mb-4">
+
+        <form class="form-inline">
+            <div class="form-group mx-sm-3 mb-2 mt-2 "> <label>Nom Acteur en tapant</label> <input
+                    class="form-control" #searchTerm (keyup)="onKeyUp(searchTerm.value)"> </div>
+        </form>
+
+        <div class="card-body">
+
+            <table class="table table-striped">
+                <tr>
+                    <th>Id</th>
+                    <th>Nom Acteurs</th>
+                    <th>Rating</th>
+                    <th>Tel Acteur</th>
+                    <th>Salaire</th>
+                    <th>Film</th>
+                </tr>
+                <tbody *ngFor="let acteur of acteurs">
+                    <tr>
+                        <td>{{acteur.idActeur}}</td>
+                        <td>{{acteur.nomActeur}}</td>
+                        <td>{{acteur.rateActeur}}</td>
+                        <td>{{acteur.telActeur}}</td>
+                        <td>{{acteur.salaireActeur}}</td>
+                        <td>{{acteur.film?.nomFilm}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

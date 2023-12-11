@@ -1,0 +1,34 @@
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <tr>
+                    <th>Id</th>
+                    <th>Nom Acteurs</th>
+                    <th>Rating</th>
+                    <th>Tel Acteur</th>
+                    <th>Salaire</th>
+                    <th>Film</th>
+                    <th>Image</th>
+                </tr>
+                <tbody *ngFor="let acteur of acteurs">
+                    <tr>
+                        <td>{{acteur.idActeur}}</td>
+                        <td>{{acteur.nomActeur}}</td>
+                        <td>{{acteur.rateActeur}}</td>
+                        <td>{{acteur.telActeur}}</td>
+                        <td>{{acteur.salaireActeur}}</td>
+                        <td>{{acteur.film?.nomFilm}}</td>
+                        <td><img class="card-img-top img-responsive"
+                            
+                            src="{{acteur.imageStr}}"
+                            style = "height :50px;width:100px"></td>
+                        <td><a *ngIf="authService.isAdmin()" class="btn btn-danger" (click)="supprimerActeur(acteur)">Supprimer</a></td>
+                        <td><a *ngIf="authService.isAdmin()" class="btn btn-success" [routerLink]="['/updateActeur',acteur.idActeur]">Modifier</a></td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

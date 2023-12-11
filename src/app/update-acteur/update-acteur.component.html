@@ -1,0 +1,69 @@
+<div class="container">
+    <div>
+        <h2>Modifier un Acteur :</h2>
+    </div>
+    <form>
+        
+            <div class="col-sm-2 col-md-2 col-lg-2"> 
+                <label>ID Acteur</label> 
+                <input readonly type="number"
+                [(ngModel)]="currentActeur.idActeur" name="idActeur" class="form-control"> 
+            </div>
+        
+        <div class="col-sm-4 col-md-4 col-lg-4"> <label>Nom Acteur</label> <input type="text"
+                [(ngModel)]="currentActeur.nomActeur" name="nomActeur" class="form-control"> </div>
+        <div class="col-sm-2 col-md-2 col-lg-2"> <label>Rating</label> <input type="number"
+                [(ngModel)]="currentActeur.rateActeur" name="rateActeur" class="form-control"> </div>
+        <div class="col-sm-2 col-md-2 col-lg-2"> <label>Tel Acteur</label> <input type="text"
+                [(ngModel)]="currentActeur.telActeur" name="telActeur" class="form-control"> </div>
+        <div class="col-sm-2 col-md-2 col-lg-2"> <label>Salaire</label> <input type="number"
+                [(ngModel)]="currentActeur.salaireActeur" name="salaireActeur" class="form-control"> </div>
+
+        <div class="col-sm-2 col-md-2 col-lg-2"> <label> Film</label>
+            <select class="form-control form-control-lg" id="idFilm" name="idFilm" [(ngModel)]="updatedFilmId">
+                <option *ngFor="let film of films" [value]="film.idFilm">
+                    {{film.nomFilm}}
+                </option>
+            </select>
+        </div>
+        <div class="col-sm-16 col-md-16 col-lg-16">
+            <label class="mb-2">Image :</label>
+            <input type="file" (change)="onImageUpload($event)" class="form-control">
+        </div>
+
+        <div class="mt-2">
+            <button type="submit" (click)="onAddImageActeur()" class="btn 
+            btn-success">Ajouter Image</button>
+        </div>
+            
+       
+
+        <div class="col-sm-16 col-md-16 col-lg-16">
+            <img [src]="myImage" class="card-img-top img-fluid rounded-start"
+            style="width: 500px; height: 300px" />
+            </div>
+
+            <div class="card shadow mb-4">
+                <div class="card-body">
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Images</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let img of currentActeur.images">
+                            <tr>
+                                <td><img class="card-img-top img-responsive" src="{{'data:' + img.type + ';base64,' + img.image}}"
+                                        style="height :50px;width:100px"></td>
+                                <td style="width:20%" ><a class="btn btn-danger"
+                                 (click)="supprimerImage(img)">Supprimer</a></td>
+                                                    
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        <div class="mt-2"> <button type="submit" (click)="updateActeur()" class="btn btn-success">Modifer</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <div class="col-sm-4 col-md-4 col-lg-4 mb-4"> <label>Filmss </label> <select
+                    class="form-control form-control-lg" id="idFilm" name="idFilm" [(ngModel)]="IdFilm"
+                    (change)="onChange()">
+                    <option *ngFor="let film of films" value="{{film.idFilm}}"> {{film.nomFilm}} </option>
+                </select> </div>
+            <table class="table table-striped">
+                <tr>
+                    <th>Id</th>
+                    <th>Nom Acteurs</th>
+                    <th>Rating</th>
+                    <th>Tel Acteur</th>
+                    <th>Salaire</th>
+                    <th>Film</th>
+                </tr>
+                <tbody *ngFor="let acteur of acteurs">
+                    <tr>
+                        <td>{{acteur.idActeur}}</td>
+                        <td>{{acteur.nomActeur}}</td>
+                        <td>{{acteur.rateActeur}}</td>
+                        <td>{{acteur.telActeur}}</td>
+                        <td>{{acteur.salaireActeur}}</td>
+                        <td>{{acteur.film?.nomFilm}}</td>
+                        
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

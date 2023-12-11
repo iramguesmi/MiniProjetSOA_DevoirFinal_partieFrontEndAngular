@@ -1,0 +1,8 @@
+<form>
+    <div [hidden]> <label>ID Film</label> <input type="number" [(ngModel)]="film.idFilm" name="idFilm"
+            class="form-control w-25"> </div>
+    <div> <label>Nom Film</label> <input type="text" [(ngModel)]="film.nomFilm" name="nomFilm"
+            class="form-control" placeholder="Entrez un nom de Film..."> </div>
+    <div class="mt-2"> <button type="submit" [disabled]="!film.nomFilm" class="btn btn-success"
+            (click)="saveFilm()">{{ ajout ? 'Ajouter' : 'Modifier'}}</button> </div>
+</form>
